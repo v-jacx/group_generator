@@ -3,26 +3,32 @@
     <h1>Group Generator</h1>
 
     <ul class="flex column names-container">
-      <li>Names</li>
-      <li>Names</li>
-      <li>Names</li>
+      <li *ngFor='let name of names'>{{name}}</li>
     </ul>
 
     <div class="flex gap name-input-container">
       <input 
+        #memberName
         type="text"
         placeholder="Name"
+        (input) = 'onInput(memberName.value)'
+        [value]="newName"
       />
-      <button>Add Name</button>
+      <button (click) = 'addName()'>Add Name</button>
     </div>
 
     <div class="flex gap number-input-container">
       <input 
+        #numOfGroups
         type="number"
         placeholder="# of Groups"
+        (input) = 'onNumInput(numOfGroups.value)'
+        [value] = 'numOfGroups'
       />
-      <button>Generate</button>
+      <button (click)="generateGroups()">Generate</button>
     </div>
 
+    <p *ngIf = 'errorMessage'>{{errorMessage}}</p>
+    
   </div>
 </div>
