@@ -52,6 +52,7 @@ export class AppComponent {
       this.errorMessage = '';
     }
 
+    this.numOfGroups = 0;
   }
 
 }
