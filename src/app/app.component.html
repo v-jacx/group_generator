@@ -31,4 +31,15 @@
     <p *ngIf = 'errorMessage'>{{errorMessage}}</p>
     
   </div>
+
+  <div *ngIf="groups.length">
+    <ul>
+      <li *ngFor="let group of groups; let i=index">
+        <app-group-card 
+          [group]="group"
+          [index]="i"
+        />
+      </li>
+    </ul>
+  </div>
 </div>
